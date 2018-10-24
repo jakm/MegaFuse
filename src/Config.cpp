@@ -15,14 +15,14 @@ Config* Config::getInstance()
 void Config::check_variable(int &var,std::string value,std::string name)
 {
     var=stoi(value);
-    printf("caricata la variabile %s con il valore %d\n",name.c_str(),var);
+    // printf("caricata la variabile %s con il valore %d\n",name.c_str(),var);
 
 }
 
 void Config::check_variable(std::string &var,std::string value,std::string name)
 {
     var = value;
-    printf("caricata la variabile %s con il valore %s\n",name.c_str(),value.c_str());
+    // printf("caricata la variabile %s con il valore %s\n",name.c_str(),value.c_str());
 
 
 }
@@ -82,7 +82,7 @@ char * Config::getString(std::string prompt, bool isPassword)
 
 		/*setting the approriate bit in the termios struct*/
 		if(isPassword)
-		newt.c_lflag &= ~(ECHO);          
+		newt.c_lflag &= ~(ECHO);
 
 		/*setting the new bits*/
 		tcsetattr( STDIN_FILENO, TCSANOW, &newt);
@@ -94,11 +94,11 @@ char * Config::getString(std::string prompt, bool isPassword)
 		}
 		buffer[i] = '\0';
 
-		/*resetting our old STDIN_FILENO*/ 
+		/*resetting our old STDIN_FILENO*/
 		tcsetattr( STDIN_FILENO, TCSANOW, &oldt);
 		if(isPassword)
 		std::cout <<std::endl;
-		return buffer;	
+		return buffer;
 }
 
 static int countEntriesInDir(std::string dirname)
